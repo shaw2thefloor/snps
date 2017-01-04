@@ -22,10 +22,12 @@ def getData(locations, soup):
   """
   chromeIndex = locations.index('On chromosome')
   positionIndex = locations.index('Chromosome position')
+
   if 'Summary' in locations:
     traitIndex = locations.index('Summary')
   else:
     traitIndex = locations.index('Trait')
+
 
   tvalues = soup('table')[1].find_all('td')
   chromosome = tvalues[chromeIndex].find_all('span')[0].get_text().split()[0]
